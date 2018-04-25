@@ -4,7 +4,7 @@
 #
 # Install requirements.
 #
-# $ pip install requests si-prefix
+# $ pip install requests requests_cache si-prefix
 #
 # Grab your key at:
 #   https://www.worldcoinindex.com/apiservice
@@ -20,9 +20,15 @@
 
 import json
 import requests
+import requests_cache
 import os
 import sys
 from si_prefix import si_format
+
+os.chdir(os.path.dirname(__file__))
+
+requests_cache.install_cache('test_cache', backend='sqlite', expire_after=5 * 60)
+
 
 url = ('https://www.worldcoinindex.com/apiservice/getmarkets' +
        '?key=%(WORLD_COIN_INDEX_API_KEY)s&fiat=USD') % os.environ

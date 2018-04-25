@@ -4,7 +4,7 @@
 #
 # Install requirements.
 #
-# $ pip install requests requests_cache si-prefix
+# $ pip install -r requirements.txt
 #
 # Grab your key at:
 #   https://www.worldcoinindex.com/apiservice

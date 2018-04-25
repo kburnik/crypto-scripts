@@ -27,7 +27,7 @@ from si_prefix import si_format
 url = ('https://www.worldcoinindex.com/apiservice/getmarkets' +
        '?key=%(WORLD_COIN_INDEX_API_KEY)s&fiat=USD') % os.environ
 
-max_items = os.environ.get('WORLD_COIN_INDEX_MAX_ITEMS', 40)
+max_items = int(os.environ.get('WORLD_COIN_INDEX_MAX_ITEMS', "40"))
 
 ticker = requests.get(url).json()
 
